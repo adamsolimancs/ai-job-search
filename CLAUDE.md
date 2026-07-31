@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Adam Soliman
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Codex acts as a career advisor and application assistant for Adam Soliman, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,70 +10,59 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
-
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Name:** Adam Soliman
+- **Location:** New York, NY, United States. New York is preferred, followed by the Northeast, San Francisco, and other locations.
+- **Languages:** English (native), Spanish (professional)
+- **CV language:** English
+- **Status:** U.S.-born citizen, authorized to work in the United States without sponsorship. NYU Computer Science student, expected to graduate December 2026; prefers a full-time start in January 2027, with a Spring 2027 internship as a fallback.
+- **LinkedIn headline:** To be added from LinkedIn export.
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **B.A. in Computer Science with Honors, Minor in Mathematics** (August 2023 - December 2026, expected) - New York University
+  - Topics: Big Data Analytics, Artificial Intelligence, Machine Learning, Applied Internet Technology, Operating Systems, Software Engineering
+  - GPA: 3.85 overall, 3.94 major
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **AI Engineering Intern** (June 2026 - August 2026) - **PwC**
+  - Built data pipelines for automated compliance testing and MCP integrations for enterprise AI context.
+  - Automated organization creation and feedback triage, eliminating 14+ setup hours across 300 organizations.
+- **Machine Learning Research Assistant** (August 2025 - December 2025) - **NYU Abu Dhabi**
+  - Built a Wikidata pipeline and improved parsing time by 67% with thread-safe multiprocessing.
+- **Software Engineer Intern** (June 2025 - August 2025) - **Momba AI**
+  - Built an LLM-powered document-analysis feature, reducing review time by 25% and contributing to 20% client-account growth.
+- **Technical Advisor Intern** (June 2024 - October 2024) - **Scale AI**
+  - Improved AI-model response quality by 8% across seven projects through 100+ evaluation tasks.
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Python, JavaScript/TypeScript, AI/ML engineering, LLM applications, data pipelines, full-stack development
+- **Secondary:** Java, C/C++, SQL, NLP, computer vision, AI-model evaluation
+- **Domain:** Enterprise compliance automation, document intelligence, agentic AI evaluation, machine-learning research
+- **Software:** React, Next.js, Node.js, Express, PyTorch, PostgreSQL, pgvector, LangChain, Codex, Claude Code
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+No certifications supplied yet.
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+No publications supplied yet.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- Presidential Honors Program - New York University
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- No formal behavioral assessment supplied. Do not make unverified personality claims; use the documented technical record and stated work preferences.
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Technically ambitious work at the forefront of software, AI, or machine learning.
+- High-impact, high-compensation, and prestigious technology roles.
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- AI/ML and technically ambitious software companies: Google, Notion, Stripe, Databricks, Snowflake.
+- New-graduate software engineering, machine learning engineering, and AI engineering roles.
 
 ### Deal-breakers
-<!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Full-time start in January 2027 is preferred; a Spring 2027 internship is an acceptable alternative.
+- Target total compensation is approximately $140,000 or higher, but compelling opportunities remain open for consideration.
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
@@ -91,7 +77,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 4. **Verify both documents** (see Verification Checklist below)
 5. Prepare interview talking points based on the role requirements and your strengths
 
-**Important:** When mentioning agentic coding or AI tooling in CVs/cover letters, explicitly reference **Claude Code** by name.
+**Important:** When mentioning agentic coding or AI tooling in CVs/cover letters, use the tool name that is factually supported by the candidate's experience. Do not imply use of Codex, Claude Code, or any other tool without evidence.
 
 ## Verification Checklist
 After creating or updating a CV or cover letter, re-read the generated file and verify **all** of the following before presenting to the user. Report the results as a pass/fail checklist.
@@ -117,7 +103,7 @@ After creating or updating a CV or cover letter, re-read the generated file and 
 ### Quality
 - [ ] No LaTeX syntax errors (balanced braces, correct commands)
 - [ ] No spelling or grammar errors
-- [ ] Agentic coding / AI tooling references mention **Claude Code** by name
+- [ ] Agentic coding / AI tooling references name only tools the candidate has actually used
 - [ ] Cover letter is addressed to the correct person (or "Dear Hiring Manager" if unknown)
 - [ ] Cover letter fits approximately one page
 - [ ] CV section headings (`\section{...}`) and the References boilerplate line match the CV's language, not left as the English template defaults (see `05-cv-templates.md`)

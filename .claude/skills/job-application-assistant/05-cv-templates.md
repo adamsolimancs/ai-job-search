@@ -115,12 +115,14 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For new-graduate AI / ML engineering roles:**
+> NYU Computer Science student graduating in December 2026 with hands-on experience building LLM applications, data pipelines, NLP systems, and AI evaluation workflows. Brings internships across enterprise automation, AI product development, and machine-learning research, plus end-to-end project experience spanning Python, PyTorch, TypeScript, React, Node.js, and PostgreSQL.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For new-graduate software engineering roles:**
+> NYU Computer Science student graduating in December 2026 with full-stack engineering experience across React, Next.js, Node.js/Express, PostgreSQL, and Python services. Built production-oriented AI features and developer workflows during internships, with measurable improvements to document review, setup time, and model quality.
+
+**For AI platform / data engineering roles:**
+> NYU Computer Science student graduating in December 2026 with experience building scalable data pipelines, optimizing multiprocessing workloads, and connecting enterprise data platforms to AI applications. Combines Python and SQL data work with practical LLM, NLP, and full-stack engineering experience.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

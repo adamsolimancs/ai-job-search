@@ -14,30 +14,59 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 ## Ready-Made STAR Examples
 
-<!-- These are populated by /setup from your actual experience. Below are templates showing the format. -->
+No fully developed STAR examples yet. Complete the source-grounded candidates below before relying on them in interviews.
 
-### 1. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT - what was happening, what was the problem]
-**T:** [YOUR RESPONSIBILITY - what you specifically needed to do]
-**A:** [WHAT YOU DID - specific actions, tools, methods]
-**R:** [OUTCOME - measurable results, adoption, impact]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+## STAR Candidates (Complete Manually)
 
-### 2. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### PwC compliance-automation workflows
+**Source:** Resume - AI Engineering Intern, PwC
+**What happened:** Built internal organization-creation and user-feedback-triage workflows that eliminated over 14 hours of setup across 300 organizations.
+**Why it matters:** Automation, process improvement, enterprise impact, and stakeholder-focused engineering questions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
-### 3. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### NYU Abu Dhabi scalable Wikidata pipeline
+**Source:** Resume - Machine Learning Research Assistant, NYU Abu Dhabi
+**What happened:** Used thread-safe multiprocessing to improve a data pipeline's parsing time by 67%.
+**Why it matters:** Performance optimization, data engineering, research, and technical problem-solving questions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
-<!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
+### Momba AI document-intelligence feature
+**Source:** Resume - Software Engineer Intern, Momba AI
+**What happened:** Built an end-to-end AI document-analysis feature spanning a PyTorch LLM inference service, React components, and Node.js/Express APIs; it reduced client review time by 25%.
+**Why it matters:** Full-stack ownership, LLM applications, product impact, and cross-functional engineering questions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Scale AI evaluation work
+**Source:** Resume - Technical Advisor Intern, Scale AI
+**What happened:** Completed 100+ evaluation tasks across seven projects, improving AI-model response quality by 8%.
+**Why it matters:** Quality, rigor, AI evaluation, and working across multiple projects.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### PTI AI physical-therapy platform
+**Source:** Resume - PTI project
+**What happened:** Led the architecture and implementation of a platform combining a Next.js/React frontend, PostgreSQL, REST API, LLaMA 3.1 chatbot, and computer-vision exercise assessment.
+**Why it matters:** Leadership, system design, product development, and project-delivery questions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
 ## Common Tough Questions
 

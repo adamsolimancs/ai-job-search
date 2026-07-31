@@ -1,6 +1,6 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
+<!-- Configured for Adam Soliman on 2026-07-31. -->
 
 ## Installed portal CLIs (primary for `/scrape`)
 
@@ -10,11 +10,10 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary:
+- **linkedin.com/jobs** - LinkedIn job listings, filtered first for New York and then the Northeast, San Francisco, and other U.S. locations; also covered by `linkedin-search` CLI
+- **freehire.me** - multi-market technical job aggregator, covered by `freehire-search` CLI
+- **Company career pages** - especially Google, Notion, Stripe, Databricks, and Snowflake
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters for known target companies
@@ -23,33 +22,34 @@ Secondary (company career pages via Google):
 
 Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: New-Grad Software Engineering
 
 These match your strongest and most desired career direction.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "new grad software engineer" "New York"
+site:linkedin.com/jobs "software engineer" "university graduate" "New York"
+site:careers.google.com "software engineer" "university graduate"
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: New-Grad AI / Machine Learning Engineering
 
 These match your domain expertise.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:linkedin.com/jobs "machine learning engineer" "new grad" "New York"
+site:linkedin.com/jobs "AI engineer" "new grad" "United States"
+site:jobs.lever.co OR site:boards.greenhouse.io "machine learning engineer" "university" "New York"
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 3: Data / AI Platform Engineering
 
 Adjacent roles you could pivot into.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "data engineer" "new grad" "New York"
+site:linkedin.com/jobs "software engineer" "AI platform" "New York"
+site:careers.databricks.com OR site:careers.snowflake.com "university" engineer
 ```
 
 ### Priority 4: Broader Technical / Consulting
@@ -57,19 +57,19 @@ site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
 Wider net for general technical roles.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "software engineer intern" "Spring 2027" "New York"
+site:linkedin.com/jobs "machine learning intern" "Spring 2027" "United States"
+site:jobs.ashbyhq.com OR site:jobs.lever.co "software engineer intern" "Spring 2027"
 ```
 
 ## Location Filter
 
 When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+- New York City and the surrounding metropolitan area (ideal)
+- Northeast U.S. (acceptable)
+- San Francisco Bay Area (acceptable for a strong role)
+- Other U.S. locations (consider case by case)
+- International locations (not configured; discuss before including)
 
 ## Date Filter
 

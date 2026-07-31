@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Master CV - Adam Soliman
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,18 +23,18 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Adam Soliman - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Adam}{Soliman}
+\address{New York, NY}{}{}
+\phone[mobile]{(914)~606-0626}
+\email{adamesoliman@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/adamesoliman/}{LinkedIn}, \href{https://github.com/adamsolimancs}{GitHub}, \href{https://www.adamesoliman.com/}{Portfolio}}
 
 \begin{document}
 
@@ -46,7 +45,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Computer Science student at New York University, graduating in December 2026, with internships building LLM applications, data pipelines, and AI evaluation workflows. Experience spans enterprise automation, full-stack software development, and machine-learning research using Python, TypeScript, React, Node.js, PyTorch, and PostgreSQL. Seeking a new-graduate software engineering, machine-learning engineering, or AI engineering role beginning January 2027.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +55,11 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
-
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
-
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Programming}: JavaScript/TypeScript, Python, Java, C/C++, SQL
+\item \textbf{Full-stack engineering}: React, Next.js, React Native, Node.js, Express, REST APIs
+\item \textbf{AI and machine learning}: PyTorch, LLM applications, NLP, computer vision, model evaluation, MCP integrations
+\item \textbf{Data}: PostgreSQL, pgvector, data pipelines, multiprocessing, Wikidata
+\item \textbf{Tools}: LangChain, Git/GitHub, Codex, Claude Code
 
 \end{itemize}
 
@@ -77,31 +72,47 @@
 \begin{itemize}
 
 % --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{Jun. 2026--Aug. 2026}{AI Engineering Intern}{PwC}{}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Built and maintained data pipelines for Risk \& Regulation to support automated compliance testing.
+    \item Developed organization-creation and user-feedback-triage workflows that eliminated over 14 hours of setup across 300 organizations.
+    \item Built MCP integrations connecting internal data platforms to AI applications, providing models with enterprise context.
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{Aug. 2025--Dec. 2025}{Machine Learning Research Assistant}{NYU Abu Dhabi}{}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Built a scalable Wikidata pipeline to study the historical influence of famous people on cities.
+    \item Applied thread-safe multiprocessing to reduce data-parsing time by 67\%.
+    \item Built NLP models for relationship extraction, converting unstructured text into a structured knowledge base.
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{Jun. 2025--Aug. 2025}{Software Engineer Intern}{Momba AI}{}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Built an AI feature that parses and analyzes user-uploaded documents, including a PyTorch inference service using a pretrained LLM.
+    \item Implemented React document-management components and Node.js/Express APIs for end-to-end processing.
+    \item Reduced client document-review time by 25\% and contributed to 20\% growth in client accounts over the summer.
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{Sep. 2025}{MOVE Fellow, AI Researcher}{Handshake, OpenAI QA Bench}{}{}{\vspace{1pt}
+\begin{itemize}
+    \item Designed QA rubrics for webpage-analysis agents, producing high-quality training data for OpenAI.
+    \item Evaluated model outputs and documented failure patterns to support reliable agentic AI.
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{Jun. 2024--Oct. 2024}{Technical Advisor Intern}{Scale AI}{}{}{\vspace{1pt}
+\begin{itemize}
+    \item Evaluated AI-generated code and API outputs to create training data for enterprise technology clients.
+    \item Improved AI-model response quality by 8\% across seven projects through 100+ evaluation tasks.
 \end{itemize}}}
 
 \end{itemize}
@@ -114,16 +125,21 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{Aug. 2023--Dec. 2026}{B.A. in Computer Science with Honors, Minor in Mathematics}{New York University}{New York, NY}{}{\vspace{1pt}
+In progress, expected December 2026. GPA: 3.85 overall, 3.94 major. Coursework: Big Data Analytics, Artificial Intelligence, Machine Learning, Applied Internet Technology, Operating Systems, and Software Engineering.
 }}
 
-\vspace{3pt}
+\end{itemize}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+% ============================================================
+%     RELEVANT COURSEWORK
+% ============================================================
 
+\section{Relevant Coursework}
+\vspace{1pt}
+\begin{itemize}
+\item Artificial Intelligence, Machine Learning, Undergraduate Research, Big Data Analytics, Software Engineering
+\item Data Structures, Algorithms, Operating Systems, Applied Internet Technology, Linear Algebra
 \end{itemize}
 
 % ============================================================
@@ -133,17 +149,18 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
+\item English (native), Spanish (professional).
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     SELECTED PROJECTS
 % ============================================================
 
-\section{Publications}
+\section{Selected Projects}
 \vspace{1pt}
 \begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
+\item \textbf{PTI} (\href{https://github.com/kvilleda12/pt}{GitHub}): Led development of an AI physical-therapy platform with a Next.js/React frontend, PostgreSQL schema, REST API, LLaMA 3.1 chatbot, and computer-vision exercise assessment.
+\item \textbf{Inhale} (\href{https://github.com/adamsolimancs/Inhale-Breathing-App}{GitHub}): Built a cross-platform meditation app at HackNYU with React Native, Expo, Node.js, and Vite; implemented breathing customization, daily streaks, haptic feedback, and frontend components.
 \end{itemize}
 
 % ============================================================
@@ -153,17 +170,12 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Honors and Awards}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item{\textbf{Presidential Honors Program} -- New York University.}
+\item{\textbf{Activities} -- Teaching Assistant for Data Structures, NYUMSA, HackNYU.}
 \end{itemize}
 
 % ============================================================
 %     REFERENCES
 % ============================================================
-
-\section{References}
-\vspace{1pt}
-\begin{itemize}
-\item{Available upon request.}
-\end{itemize}
 
 \end{document}

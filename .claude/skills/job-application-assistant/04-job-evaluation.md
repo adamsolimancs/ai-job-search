@@ -8,6 +8,8 @@ framework_version: 1.1.0
 
 ## Eligibility Gate — run before scoring
 
+Adam is a U.S.-born citizen and is authorized to work in the United States without sponsorship. For U.S. roles, citizenship and general work authorization are confirmed; still verify any role-specific security-clearance requirements.
+
 If the candidate is not a citizen or permanent resident of the country they are applying in, run this first. It is a hard filter, not a scoring dimension, and it is separate from work-permit *timing*: timing asks "can they work the required hours yet?", eligibility asks "are they permitted to hold this job at all?". A candidate can pass timing and still be categorically excluded.
 
 Read the posting's eligibility / work rights / "who can apply" section **verbatim** and classify:
@@ -44,9 +46,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** AI engineering, LLM applications, data pipelines, full-stack development, machine learning, NLP, model evaluation, TypeScript/JavaScript, Python, React, Node.js, PyTorch, PostgreSQL.
+**Moderate match areas:** Computer vision, MCP integrations, enterprise compliance automation, agentic AI evaluation, Java, C/C++, SQL.
+**Weak match areas:** Evaluate per posting; do not assume production infrastructure, MLOps, distributed systems, or other technologies not documented in the candidate profile.
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -58,9 +60,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** AI engineering internships, LLM/document intelligence, full-stack software development, machine-learning research, data pipelines, model evaluation.
+**Moderate:** Enterprise internal platforms, compliance automation, computer vision, AI training-data quality.
+**Entry-level:** New-graduate software engineering, ML engineering, and AI engineering roles beginning in 2027.
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -75,10 +77,12 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
-- Frequent international travel: FLAG (discuss with user)
+- New York City and the Northeast: PASS and preferred.
+- San Francisco: PASS, acceptable relocation for a strong role.
+- Other U.S. locations: consider case by case; location is not a hard veto.
+- In-office and hybrid: PASS.
+- Remote: evaluate case by case; no stated preference.
+- Frequent international travel: FLAG for discussion.
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
@@ -91,19 +95,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Secure a new-graduate full-time software engineering, machine learning, or AI role starting January 2027.
+- Prioritize leading technology companies while maintaining a broad, realistic search.
+- If needed, pursue a Spring 2027 internship before a full-time search beginning in August 2027.
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: AI/ML engineering, full-stack product work, data pipelines, and building reliable AI applications.
+- Tasks that drain: No stated task-based deal-breakers; evaluate role substance and team context rather than assuming a narrow preference.
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Target total compensation is approximately $140,000 or higher for full-time roles, but this is a preference rather than a hard floor; evaluate compelling opportunities individually.
+- **Flexibility**: Full-time January 2027 start is preferred; Spring 2027 internship is an acceptable alternative.
+- **Professional development**: New-graduate growth in software engineering, machine learning, and AI engineering.
 
 ### 6. Salary Benchmark (Optional)
 

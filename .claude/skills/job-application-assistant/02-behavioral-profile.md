@@ -4,51 +4,47 @@ framework_version: 1.0.0
 
 # Behavioral Profile
 
-<!-- SETUP: This file is populated by running /setup -->
-<!-- You can use results from PI, DISC, Myers-Briggs, StrengthsFinder, or a self-assessment -->
+<!-- No formal assessment, LinkedIn About section, or reference letters have been supplied yet. -->
 
 ## Overview
-[YOUR_NAME]'s behavioral assessment identifies them as a **[PROFILE_TYPE]** pattern. [1-2 SENTENCE_SUMMARY].
+Adam has not supplied a formal behavioral assessment. Do not infer personality traits from technical achievements alone. Use the stated work and career preferences below, and update this profile when a LinkedIn export, reference letters, or self-assessment are available.
 
 ## Core Behavioral Drives
 
 | Drive | Level | Meaning |
 |-------|-------|---------|
-| [DRIVE_1] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_2] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_3] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_4] | [LEVEL] | [DESCRIPTION] |
+| Technical ambition | Stated preference | Seeks technically advanced, industry-leading work. |
+| Compensation and prestige | Stated preference | Values high-paying, respected employers alongside technical opportunity. |
+| Work arrangement | Flexible | Open to in-office and hybrid work; no stated preference between them. |
+| Other behavioral drives | Not assessed | Do not treat as a fit signal until more evidence is supplied. |
 
 ## Strongest Behaviors
-- **[BEHAVIOR_1]:** [DESCRIPTION]
-- **[BEHAVIOR_2]:** [DESCRIPTION]
-- **[BEHAVIOR_3]:** [DESCRIPTION]
+- **Technical ambition:** Prefers roles at the forefront of the industry.
+- **Flexibility:** Open to in-office and hybrid arrangements.
+- **Other behaviors:** Not assessed; do not make personality claims in applications.
 
 ## How You Work Best
-- [ENVIRONMENT_PREFERENCE_1]
-- [ENVIRONMENT_PREFERENCE_2]
-- [ENVIRONMENT_PREFERENCE_3]
+- In-office and hybrid environments are both acceptable.
+- Technically ambitious teams and high-impact work are preferred.
+- Other work-style preferences have not been assessed.
 
 ## Growth Areas (frame positively in applications)
-- **[AREA_1]:** [HOW_TO_FRAME_IT_POSITIVELY]
-- **[AREA_2]:** [HOW_TO_FRAME_IT_POSITIVELY]
+- **Behavioral evidence:** No formal assessment or third-party behavioral evidence is available yet; do not fill this gap with generic strengths language.
 
 ## Mapping to Job Posting Language
 
-When a job posting mentions these keywords, it's a **strong behavioral fit**:
-- [KEYWORD_OR_PHRASE_THAT_MATCHES_YOUR_STYLE]
-- [ANOTHER_KEYWORD]
+When a job posting mentions these keywords, it is a **potentially positive fit** based on stated preferences, not a behavioral assessment:
+- Technical innovation, AI/ML product development, or frontier engineering
+- High-impact engineering work and strong opportunities for growth
 
-When a job posting mentions these, flag as **potential friction** (not deal-breaker):
-- [KEYWORD_OR_PHRASE_THAT_MIGHT_CLASH]
-- [ANOTHER_KEYWORD]
+When a job posting mentions these, flag for discussion rather than assuming friction:
+- Work arrangement, travel, or management expectations not yet assessed
 
 ## Management Style Preferences
-- [WHAT_MANAGEMENT_STYLE_WORKS_FOR_YOU]
-- [WHAT_DOESN'T_WORK]
+- Not assessed. Ask before using management style as a decision factor.
 
 ## Using This in Applications
-- **Cover letters:** [HOW_TO_WEAVE_IN_BEHAVIORAL_STRENGTHS]
-- **CV:** [WHAT_TO_EMPHASIZE]
-- **Interviews:** [WHAT_STAR_EXAMPLES_TO_USE]
-- **Don't overstate:** [WHAT_NOT_TO_CLAIM]
+- **Cover letters:** Emphasize verified technical motivation and accomplishments, not unassessed personality traits.
+- **CV:** Emphasize documented technical results and end-to-end ownership.
+- **Interviews:** Use the source-grounded STAR candidates in `07-interview-prep.md`.
+- **Don't overstate:** Team style, management preferences, leadership style, or personality traits without first-person evidence.
