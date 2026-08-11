@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Jobs"
+  short_description: "Search every configured job source"
+  default_prompt: "Use $search-jobs to find available jobs matching my profile across every configured source."

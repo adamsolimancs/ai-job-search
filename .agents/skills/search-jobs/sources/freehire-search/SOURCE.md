@@ -10,12 +10,10 @@ description: >
   technical roles. Trigger phrases: find a tech job, software job search, developer
   jobs, engineering vacancies, data/ML jobs, DevOps roles, remote developer jobs,
   "are there any <tech role> jobs in <place>", look up this freehire job posting.
-context: fork
 enabled: true  # set to false to keep this portal installed but have /scrape skip it
-allowed-tools: Bash(bun run .agents/skills/freehire-search/cli/src/cli.ts *)
 ---
 
-# freehire Search Skill
+# freehire Source Adapter
 
 Search live job listings from the **[freehire.me](https://freehire.me)** job
 aggregator — an open-source IT job board that normalizes postings from ~50 ATS
@@ -56,7 +54,7 @@ base-URL env var, `FREEHIRE_API_URL` (default `https://freehire.me`), so pointin
 it at a local instance is a one-line change:
 
 ```bash
-FREEHIRE_API_URL=http://localhost:8080 bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "go"
+FREEHIRE_API_URL=http://localhost:8080 bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search -q "go"
 ```
 
 Caveat: standing up the *API* is light, but keeping a *full, continuously-fresh*
@@ -76,7 +74,7 @@ at the hosted API.
 ### Search job listings
 
 ```bash
-bun run .agents/skills/freehire-search/cli/src/cli.ts search [-q "<keywords>"] [facet flags]
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search [-q "<keywords>"] [facet flags]
 ```
 
 Key flags:
@@ -117,7 +115,7 @@ Facet filters (values come from freehire's controlled vocabularies; comma-separa
 ### Fetch full job detail
 
 ```bash
-bun run .agents/skills/freehire-search/cli/src/cli.ts detail <slug|url> [--format json|plain]
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts detail <slug|url> [--format json|plain]
 ```
 
 `slug` is the `id` from a `search` result (e.g. `golang-zensar-2bxu6dxm`). You may
@@ -133,22 +131,22 @@ just returned only re-reads a description you already have.
 
 ```bash
 # Senior backend roles, table view
-bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "backend engineer" --seniority senior --limit 10 --format table
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search -q "backend engineer" --seniority senior --limit 10 --format table
 
 # Remote React roles in the EU
-bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "react" --remote remote --region eu --format table
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search -q "react" --remote remote --region eu --format table
 
 # DevOps roles in Germany posted in the last 14 days
-bun run .agents/skills/freehire-search/cli/src/cli.ts search --category devops --country DE --jobage 14 --format table
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search --category devops --country DE --jobage 14 --format table
 
 # ML/AI roles anywhere, fully remote
-bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "machine learning" --category ml_ai --remote remote --format table
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search -q "machine learning" --category ml_ai --remote remote --format table
 
 # Descriptions as plain text instead of Markdown
-bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "platform engineer" --limit 5 --description-format text
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts search -q "platform engineer" --limit 5 --description-format text
 
 # Full details for a specific job
-bun run .agents/skills/freehire-search/cli/src/cli.ts detail golang-zensar-2bxu6dxm --format plain
+bun run .agents/skills/search-jobs/sources/freehire-search/cli/src/cli.ts detail golang-zensar-2bxu6dxm --format plain
 ```
 
 ## Output formats

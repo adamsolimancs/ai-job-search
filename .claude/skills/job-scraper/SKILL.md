@@ -1,11 +1,11 @@
 ---
 name: scrape
 description: >
-  Finds new job postings matching your profile via installed portal-search CLIs
-  (LinkedIn, local job boards, and any skills added with /add-portal). Deduplicates
+  Finds new job postings matching your profile via every configured search source
+  (portal CLIs, aggregators, company sites, ATS boards, and web fallbacks). Deduplicates
   across runs. Triggers on: job scrape, find jobs, search jobs, new jobs, job search,
   scrape jobs, /scrape
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash(bun --version), Bash(bun run .agents/skills/*/cli/src/cli.ts *), WebFetch, WebSearch, Agent, AskUserQuestion
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(bun --version), Bash(bun run .agents/skills/search-jobs/sources/*/cli/src/cli.ts *), WebFetch, WebSearch, Agent, AskUserQuestion
 ---
 
 # Job Scraper
@@ -14,8 +14,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash(bun --version), Bash(bun run 
 
 ## How It Works
 
-This skill searches job portals using the **installed portal-search CLIs** in
-`.agents/skills/` (plus WebSearch as a fallback), using queries from your profile.
+This workflow powers the single portable `search-jobs` skill. It searches all
+configured adapters under `.agents/skills/search-jobs/sources/` plus required
+non-CLI sources and WebSearch fallbacks, using queries from your profile.
 It deduplicates against previously seen jobs and the application tracker, and
 presents new matches with a quick fit assessment.
 
@@ -46,7 +47,15 @@ Optional arguments:
 
 Read `search-queries.md` (this directory) for the search strategy. By default, run the top 3 priority query categories. If the user said "broad", run all categories. If the user specified a focus area (e.g. "data science"), prioritize queries from that category.
 
-**Use the installed CLI tools as the primary search mechanism.** Fall back to `WebSearch` only for portals that do not have a CLI skill, or if `bun` is unavailable on the system.
+Every normal run must also complete the **Direct target-company sweep** in
+`search-queries.md`. This is independent of the portal and aggregator searches:
+check each listed company's official career site or public ATS board directly and
+record that it was checked. Search both explicit graduate titles and the broader
+level-I/1, associate, junior, and plain-title plus entry-level-description signals
+defined there. Do not treat zero LinkedIn, FreeHire, or Simplify results as evidence
+that a target company has no matching openings.
+
+**Use the installed CLI adapters as the primary search mechanism.** Fall back to `WebSearch` only for sources that do not have a CLI adapter, or if `bun` is unavailable on the system.
 
 #### 1a. Check bun availability
 
@@ -58,26 +67,26 @@ If this fails (bun not installed), skip to **1c (WebSearch fallback)** for all p
 
 #### 1b. Run CLI tools (primary — run these in parallel where possible)
 
-Discover all installed portal CLI skills by reading every `SKILL.md` found under `.agents/skills/*/SKILL.md`. Each file documents that portal's exact CLI flags and usage examples. **Use each portal's own documented interface — do not guess flags.** This approach automatically includes any new portals added via `/add-portal` without requiring changes to this file.
+Discover all installed CLI source adapters by reading every `SOURCE.md` found under `.agents/skills/search-jobs/sources/*/SOURCE.md`. Each file documents that source's exact CLI flags and usage examples. **Use each source's own documented interface — do not guess flags.** This automatically includes adapters added with `/add-portal` without creating another discoverable skill.
 
-**Honor the `enabled` toggle.** A portal is enabled unless its `SKILL.md` frontmatter sets `enabled: false` (a missing key means enabled — the default). Skip each disabled portal and record it for the Step 5 summary. A fork can thus keep a portal installed but sit out a run without deleting its directory.
+**Honor the `enabled` toggle.** A source is enabled unless its `SOURCE.md` frontmatter sets `enabled: false` (a missing key means enabled — the default). Skip each disabled source and record it for the Step 5 summary. A fork can thus keep an adapter installed but sit out a run without deleting its directory.
 
-For each **enabled** portal skill:
+For each **enabled** source adapter:
 
-1. Read its `SKILL.md` to find the correct `bun run …` invocation and supported flags.
-2. Translate the query terms from `search-queries.md` into that portal's flag format (e.g. `--key`, `--search-string`, `--query`, filter codes — whatever the portal's SKILL.md specifies).
+1. Read its `SOURCE.md` to find the correct `bun run …` invocation and supported flags.
+2. Translate the query terms from `search-queries.md` into that source's flag format (e.g. `--key`, `--search-string`, `--query`, filter codes — whatever its `SOURCE.md` specifies).
 3. Scope to the last 14 days using the portal's supported recency flag (`--jobage`, `--since <YYYY-MM-DD>`, `--order PublicationDate`, etc. — as documented per portal).
 4. Cap results to ~20 per call using the portal's limit flag.
 5. Use `--format json` for machine-readable output.
 
-Run all portal CLI calls in parallel where possible using the Agent tool. Collect all `results` arrays into a single pool for Step 2, keeping each result tagged with its source portal skill (for Step 2 `detail` lookups).
+Run all source CLI calls in parallel where possible using the Agent tool. Collect all `results` arrays into a single pool for Step 2, keeping each result tagged with its source adapter (for Step 2 `detail` lookups).
 
 If a CLI tool exits with a non-zero code, log the error message and continue — do not abort the whole search.
 
 #### 1c. WebSearch fallback
 
 Use `WebSearch` for:
-- Portals listed in `search-queries.md` that do **not** have a corresponding directory under `.agents/skills/`
+- Sources listed in `search-queries.md` that do **not** have a corresponding adapter under `.agents/skills/search-jobs/sources/`
 - Any portal whose CLI fails at runtime
 - When bun is unavailable (Step 1a failed)
 
@@ -89,7 +98,7 @@ For each promising result from Step 1:
 
 **From CLI results:** Search output already includes title, company, location, date,
 and URL. For jobs worth a deeper look, fetch full detail with that portal's `detail`
-command (see its SKILL.md — do not guess flags) to extract **key requirements**,
+command (see its `SOURCE.md` — do not guess flags) to extract **key requirements**,
 **application deadline**, and a brief description snippet.
 
 **From WebSearch results:** Use `WebFetch` on the posting URL and extract the same
@@ -98,6 +107,9 @@ fields manually.
 For every candidate:
 - Skip if the URL or company+title combo already exists in `seen_jobs.json`
 - Skip if the company+role already appears in `job_search_tracker.csv`
+- Do not reject a plain `Software Engineer`, `Data Scientist`, `Data Engineer`,
+  `Machine Learning Engineer`, or `AI Engineer` title before reading its description;
+  retain it when the description contains one of the configured entry-level signals.
 
 ### Step 2.5: Mass-Posting Detection (within this run)
 
@@ -126,13 +138,13 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
       "first_seen": "YYYY-MM-DD",
       "fit": "high/medium/low",
       "status": "new/skipped/evaluated/ranked/expired",
-      "portal": "<source portal skill, e.g. jobindex-search>"
+      "portal": "<source adapter, e.g. jobindex-search>"
     }
   }
 }
 ```
 
-The `portal` field records which CLI skill produced the job (results are already tagged per portal in Step 1b - persist that tag here). Entries written before this field existed lack it; the health check (Step 4.75) attributes those by matching the URL's domain against each portal's base URL, so do not backfill.
+The `portal` field records which source adapter produced the job (results are already tagged per source in Step 1b - persist that tag here). Entries written before this field existed lack it; the health check (Step 4.75) attributes those by matching the URL's domain against each source's base URL, so do not backfill.
 
 `/rank` extends this schema additively: ranked entries also carry `rank_score` (0–100 overall score), `rank_verdict` (fit band, e.g. "strong fit"), `rank_date` (ISO date of ranking), and `strengths`/`gaps` (1-3 verbatim bullets each, copied from the scoring agent's findings). The `status` field is set to `"ranked"`. Do not drop any of these fields when re-writing entries. Entries ranked before `strengths`/`gaps` existed simply lack them; readers tolerate their absence and never backfill by guessing.
 
@@ -171,7 +183,7 @@ Scraper-based portal CLIs rot silently: when a portal changes its markup, the pa
 - **Degraded scan:** inspect the results it returned this run. Flags: `company` null or empty on every result, empty titles, undecoded entities (`&amp;`) or HTML fragments in titles, URLs that do not point at the portal. Any of these means the parser is half-working and `/scrape` is silently collecting junk.
 - **Yield history:** if the portal returned zero results across all of this run's queries, check whether `seen_jobs.json` holds prior entries from it (via the `portal` field, or by matching URL domains for entries predating the field). A portal that produced jobs on earlier runs and produces nothing now is suspect - the same queries worked before.
 
-**Escalation (bounded, on suspicion only).** A suspect portal gets **one** sentinel probe: run its documented `search` with the example query from its own SKILL.md (that query provably worked when the skill was registered), the portal's limit flag capped at 3, `--format json`. If that returns nothing, retry **once** with a single common word. Only then is the verdict **broken**. A 429 or block page is **never** evidence of breakage - record the portal as **inconclusive (rate-limited)**, back off, and do not retry.
+**Escalation (bounded, on suspicion only).** A suspect source gets **one** sentinel probe: run its documented `search` with the example query from its own `SOURCE.md` (that query provably worked when the adapter was registered), the source's limit flag capped at 3, `--format json`. If that returns nothing, retry **once** with a single common word. Only then is the verdict **broken**. A 429 or block page is **never** evidence of breakage - record the source as **inconclusive (rate-limited)**, back off, and do not retry.
 
 **Verdicts.** Healthy portals get silence - no table, no line. Anything else surfaces in the Step 5 summary as a health line.
 
@@ -196,8 +208,8 @@ Found X new positions (Y high, Z medium, W low match).
 
 skipped (disabled): <portal-name>, <portal-name>
 
-health: <portal-name> - degraded (company null on all 12 results); parsing anchors in .agents/skills/<portal-name>/url-reference.md
-health: <portal-name> - broken (0 results for the SKILL.md test query and a broader retry); parsing anchors in .agents/skills/<portal-name>/url-reference.md
+health: <source-name> - degraded (company null on all 12 results); parsing anchors in .agents/skills/search-jobs/sources/<source-name>/url-reference.md
+health: <source-name> - broken (0 results for the SOURCE.md test query and a broader retry); parsing anchors in .agents/skills/search-jobs/sources/<source-name>/url-reference.md
 
 | # | Fit | Title | Company | Location | Deadline | URL |
 |---|-----|-------|---------|----------|----------|-----|

@@ -26,10 +26,10 @@ When the user provides a job posting (URL or text), follow this workflow:
 - Ask the user if they want to proceed with an application
 
 ### Step 2: Tailor CV
-- Read the most relevant existing CV variant from `cv/` as a starting point
+- Read `documents/cv/Adam Soliman Resume, 26-27.pdf` as the mandatory design master and use an editable branch of that format as the starting point
 - Follow the guidelines in `05-cv-templates.md`
-- Create `cv/main_<company>_<role>.tex` with tailored content
-- Adjust: profile statement, skills section, experience bullet emphasis, section order
+- Create `documents/cv/adam_soliman_resume_<company>_<role>.tex` with tailored content
+- Preserve the original's exact font, font sizes, spacing, margins, rules, bullets, section order, and one-page layout. Change only factual text content; never substitute a stock template or rearrange the format.
 
 ### Step 3: Write Cover Letter
 - Follow the writing style rules in `03-writing-style.md` (critical: no em-dashes, no cliches)

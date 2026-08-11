@@ -6,23 +6,29 @@ framework_version: 1.3.0
 
 <!-- SETUP: Profile statements and section ordering are personalized by running /setup -->
 
-## Template: LaTeX moderncv (Banking Style)
+## Active Template: Adam's Original One-Page Resume (Mandatory)
 
-All CVs use the moderncv LaTeX package with the "banking" style and "blue" color scheme.
+**Design master:** `documents/cv/Adam Soliman Resume, 26-27.pdf`
 
-**Output file:** `cv/main_<company>_<role>.tex`
-**Compile with:** **lualatex** on MiKTeX/TeX Live. pdflatex often fails on modern MiKTeX installs with `fontawesome5` font-expansion errors; lualatex handles the same sources cleanly.
-**Master reference:** `cv/main_example.tex` (comprehensive CV with all competencies, experience, and achievements - use as source when building targeted CVs)
+Every new CV for Adam must branch from this original resume. Preserve its exact one-page visual system: font, font sizes, line heights, spacing, margins, rules, bullet treatment, contact header, and section order (Education, Experience, Projects, Skills). Tailoring may change only factual text content. Do not use `moderncv`, `cv/main_example.tex`, or any other stock or previously generated visual format as a starting point.
+
+**Output file:** `documents/cv/adam_soliman_resume_<company>_<role>.tex` and the matching PDF.
+**Compile with:** the original resume branch's declared toolchain. If the only supplied master is a PDF, use it as the visual reference and request an editable source if exact reproduction is not possible; never silently substitute a different template.
+**Hard page limit:** exactly **1 page**. When content must be shortened, edit factual text for concision. Never change the master font, sizes, spacing, margins, or page geometry to make it fit.
+
+## Legacy Fallback: LaTeX moderncv (Never Use for Adam)
 
 ### Compile command
+
+Legacy only. Do not run this for Adam's CVs.
 
 ```bash
 cd cv && lualatex -interaction=nonstopmode main_<company>_<role>.tex
 ```
 
-Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. Any page count other than 2 is a failure that must be fixed before presenting to the user.
+This legacy fallback is retained only for non-Adam users. Do not use it in this workspace.
 
-## Document Structure
+## Legacy Document Structure (Never Use for Adam)
 
 ```latex
 \documentclass[11pt,a4paper,sans]{moderncv}
@@ -70,11 +76,11 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 \end{document}
 ```
 
-### Color overrides
+### Legacy Color Overrides
 
 The three `\renewcommand*` lines in the preamble are required on lualatex+MiKTeX. Without them the firstname, lastname, and section headings render in black even though `\moderncvcolor{blue}` is set, which looks inconsistent with the rest of the blue accent scheme (links, bullet markers, contact icons). The override forces all three to use `color1` (moderncv's accent colour, which becomes blue under `\moderncvcolor{blue}`). Both names render bold; if you prefer the firstname in regular weight, change the firstnamestyle override from `\bfseries` to `\mdseries`. Don't drop the override - on most modern installs the defaults render visibly wrong.
 
-### Spacing inside itemize lists (important)
+### Legacy Spacing inside itemize lists
 
 **Do not place `\vspace{...}` between `\item` entries in an `itemize` list.** Even though the source looks symmetric, this pattern occasionally produces a noticeably oversized gap before a single item: the inter-item `\vspace` creates a paragraph break that interacts unpredictably with the list's internal `\itemsep`, so LaTeX renders one of the gaps wider than the rest. Remove the inter-item `\vspace` and let `itemize` use its native uniform spacing.
 
@@ -106,8 +112,8 @@ Section headings such as `\section{Core Competencies}`, `Professional Experience
 
 ## Section-by-Section Tailoring
 
-### Profile Statement / Elevator Pitch (Best Practice)
-This is the most important section to customize. It appears right after `\makecvtitle`.
+### Legacy Profile Statement / Elevator Pitch (Never Use for Adam)
+For Adam's active template, retain the original section order and placement. Tailor only the factual text already present in the original's sections; do not add a profile-statement block or move sections. The legacy guidance below applies only to non-Adam users.
 
 Write 5-7 lines that function as an "elevator pitch": a concise, compelling introduction explaining why you're qualified for *this specific role*. Focus on what the employer gains from hiring you.
 
@@ -203,12 +209,16 @@ Wherever the CV names a verifiable artifact - a public project, a hackathon entr
 
 After writing the CV and before presenting to the user, always compile and visually inspect the PDF. Iterate until the layout is clean. Workflow:
 
-1. Run `lualatex -interaction=nonstopmode main_<company>_<role>.tex`
-2. Check the output page count: must be exactly 2
-3. Read the PDF via the Read tool and visually inspect both pages
-4. Check for **orphaned entries**: a `\cventry` title line must never sit alone at the bottom of page 1 with its bullets on page 2
+1. Run the original resume branch's declared compile command.
+2. Check the output page count: must be exactly 1.
+3. Read the PDF via the Read tool and visually inspect the complete page against the original design master.
+4. Check for **orphaned entries** and any difference from the original's font, spacing, margins, rules, bullet treatment, or section order.
 
-### Fixing common page-break problems
+### Active Template Overflow Rule
+
+If a tailored resume exceeds one page, preserve the design master exactly and shorten only factual text content. Do not change font, font size, line height, spacing, margins, rules, bullets, or section order.
+
+### Legacy Page-Break Fixes (Never Use for Adam)
 
 **Problem: entry title on page 1, bullets orphaned to page 2**
 Add `\needspace{5\baselineskip}` immediately before the problematic `\cventry`:
@@ -234,7 +244,7 @@ Restore the highest-relevance item that was previously cut — a CV that ends mi
 Most employers run CVs through an ATS before a human sees them, and the ATS reads the PDF's embedded **text layer**, not the rendered page. A CV can pass visual inspection and still extract as garbage. After the layout passes the compile-and-inspect loop, verify the text layer:
 
 ```bash
-cd cv && pdftotext -layout main_<company>_<role>.pdf main_<company>_<role>.txt
+cd documents/cv && pdftotext -layout adam_soliman_resume_<company>_<role>.pdf adam_soliman_resume_<company>_<role>.txt
 ```
 
 `pdftotext` comes from [poppler](https://poppler.freedesktop.org/), not the TeX distribution - it is an **optional** dependency. If it is not installed, skip the mechanical check with a warning and rely on the visual PDF read for keyword coverage.
@@ -246,21 +256,16 @@ What to check in the extraction:
 - **Reading order.** The stock banking style is single-column, so extraction order matches visual order. Custom templates (via `/add-template`) with sidebars or multi-column layouts can interleave unrelated lines; if extraction order is scrambled, the user is trading ATS compatibility for looks and should be told.
 - **Keyword coverage.** Match the posting's required/preferred terms against the extracted text, in the posting's language. Prefer the posting's exact term over a synonym when it is truthfully applicable - ATS matching is often literal. Never add a keyword the profile does not support.
 
-## Page Budget - Hard 2-Page Limit
+## Page Budget - Hard 1-Page Limit
 
-The CV **must** fit on exactly 2 pages when compiled. Use these content limits as a guide:
+The CV **must** fit on exactly 1 page when compiled. Preserve the design master's geometry and typography; shorten text only when necessary.
 
-| Section | Max budget |
-|---------|-----------|
-| Profile statement | 3-4 lines |
-| Skills | 5 items, each 1-2 lines |
-| Most recent role | 4-5 bullets |
-| Previous role | 2-3 bullets |
-| Older roles | 2 bullets (1 line each) |
-| Education | 2-3 entries |
-| Publications | 2-3 entries |
-| Awards | 3 entries, single line each |
-| References | "Available upon request." (single line) |
+| Section | Format requirement |
+|---------|--------------------|
+| Education | Preserve the original's placement and line treatment |
+| Experience | Preserve the original's entries, bullet treatment, and reverse chronology |
+| Projects | Preserve the original's placement and date treatment |
+| Skills | Preserve the original's compact bullet treatment |
 
 **If in doubt, cut rather than squeeze.** Reducing `\vspace` or geometry scale to force-fit content makes the CV look cramped.
 
@@ -289,11 +294,15 @@ Cut the lowest-total-score line first, regardless of which section it sits in.
 
 - Do not mechanically cut from the bottom of a static section list without checking relevance. "Cut the oldest role first" is wrong if that role is literally about the skill the posting asks for.
 - Do not cut the one concrete example the cover letter leans on. Relevance is measured against the cover letter you wrote, not just the job posting — interviewers will have read both.
-- Do not cut to fit if the fit is borderline (2.02 pages). Prefer `\enlargethispage{2-3\baselineskip}` on a late section for near-misses; reserve content cuts for genuine overflow (content on page 3 that is more than a single trailing section).
+- Do not alter the design master's spacing, font sizes, margins, or geometry to force-fit content. Cut or tighten only the lowest-value factual text until the one-page layout is restored.
 
-## Recommended Section Order
+## Required Section Order for Adam
 
-The section order varies by role type:
+Preserve the original order exactly: Education, Experience, Projects, Skills. Do not select a different order based on role type.
+
+## Legacy Recommended Section Order
+
+This section is legacy-only; Adam's required order above takes precedence.
 
 **For technical / data science / ML roles:**
 1. Profile statement / elevator pitch

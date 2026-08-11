@@ -17,7 +17,7 @@ CLI for searching the [freehire.me](https://freehire.me) job aggregator across
 ## Installation
 
 ```bash
-cd .agents/skills/freehire-search/cli
+cd .agents/skills/search-jobs/sources/freehire-search/cli
 bun install   # optional — only installs TypeScript dev types
 ```
 
@@ -65,7 +65,7 @@ bun run src/cli.ts search --category devops --country DE --jobage 14 --format ta
 bun run src/cli.ts detail golang-zensar-2bxu6dxm --format plain
 ```
 
-See `../SKILL.md` for the full flag reference and the hosted-dependency note.
+See `../SOURCE.md` for the full flag reference and the hosted-dependency note.
 
 ## Search flags
 

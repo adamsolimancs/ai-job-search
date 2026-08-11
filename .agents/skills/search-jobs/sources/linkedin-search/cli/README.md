@@ -14,7 +14,7 @@ CLI for searching jobs on LinkedIn's public job listings, for **any country/regi
 ## Installation
 
 ```bash
-cd .agents/skills/linkedin-search/cli
+cd .agents/skills/search-jobs/sources/linkedin-search/cli
 bun install   # optional — only installs TypeScript dev types
 ```
 
@@ -46,7 +46,7 @@ bun run src/cli.ts search -q "technical writer" -l "Remote" --remote remote --fo
 bun run src/cli.ts detail 4426311357 --format plain
 ```
 
-See `../SKILL.md` for the full flag reference and the Terms-of-Service note.
+See `../SOURCE.md` for the full flag reference and the Terms-of-Service note.
 
 ## Search flags
 

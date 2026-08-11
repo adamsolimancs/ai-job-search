@@ -4,7 +4,7 @@
 Run from anywhere: python tools/lint_skills.py
 
 Checks:
-- Every SKILL.md (.claude/skills/*, .agents/skills/*) has YAML frontmatter that
+- Every SKILL.md and unified job-search SOURCE.md has YAML frontmatter that
   parses, with non-empty `name` and `description` keys
 - `allowed-tools` entries of the form `Bash(bun run <path> *)` point at files
   that exist (skill paths resolve relative to the repo root and to .agents/)
@@ -97,6 +97,7 @@ def check_settings() -> None:
 
 def main() -> int:
     skills = sorted(ROOT.glob(".claude/skills/*/SKILL.md")) + sorted(ROOT.glob(".agents/skills/*/SKILL.md"))
+    sources = sorted(ROOT.glob(".agents/skills/search-jobs/sources/*/SOURCE.md"))
     commands = sorted((ROOT / ".claude" / "commands").glob("*.md"))
     if not skills:
         errors.append("no SKILL.md files found - glob roots are wrong or the tree moved")
@@ -105,6 +106,8 @@ def main() -> int:
 
     for skill in skills:
         check_skill(skill)
+    for source in sources:
+        check_skill(source)
     for command in commands:
         check_command(command)
     check_settings()
@@ -114,7 +117,10 @@ def main() -> int:
         for err in errors:
             print(f"  - {err}")
         return 1
-    print(f"lint_skills: OK ({len(skills)} skills, {len(commands)} commands, settings.json)")
+    print(
+        f"lint_skills: OK ({len(skills)} skills, {len(sources)} job sources, "
+        f"{len(commands)} commands, settings.json)"
+    )
     return 0
 
 

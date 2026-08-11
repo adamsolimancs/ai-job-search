@@ -127,7 +127,7 @@ posting is still served here (with a non-null `closed_at`); a missing slug is 40
 
 The market's facet-value distributions under an optional filter — each facet's live
 values with counts. `data.facets` is `{ <facet>: { <value>: <count> } }`. This skill
-does not call it programmatically, but it is the vocabulary source the SKILL.md
+does not call it programmatically, but it is the vocabulary source the SOURCE.md
 points users to (`?q=<role>` scopes the counts). Example:
 `GET /api/v1/jobs/facets?q=react`.
 

@@ -1,0 +1,1 @@
+/Users/adoma/.codex/skills/tailor-resume/SKILL.md
